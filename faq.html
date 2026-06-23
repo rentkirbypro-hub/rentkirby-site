@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Чести въпроси — KirbyPro</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #C9A84C; --gold-light: #E8C96A;
+    --dark: #0D0D0D; --dark2: #161616; --dark3: #1F1F1F;
+    --cream: #F5F0E8; --white: #FFFFFF; --muted: #888;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--dark); color: var(--cream); min-height: 100vh; }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 60px;
+    border-bottom: 1px solid rgba(245,240,232,0.06);
+  }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+  .logo span { color: var(--gold); }
+  .back-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: rgba(245,240,232,0.6); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.04em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .back-btn:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 60px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 900; line-height: 1.05; letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+  h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 520px; }
+
+  /* FAQ */
+  .faq-wrapper { max-width: 800px; margin: 0 auto; padding: 0 60px 80px; }
+  .faq-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .faq-item { background: var(--dark3); overflow: hidden; }
+  .faq-q {
+    width: 100%; background: none; border: none; color: var(--cream);
+    padding: 26px 32px; display: flex; align-items: center;
+    justify-content: space-between; gap: 20px;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    font-size: 1.02rem; font-weight: 600; text-align: left;
+    transition: background 0.2s; line-height: 1.4;
+    position: relative;
+  }
+  .faq-q::before {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px; background: rgba(245,240,232,0.05);
+  }
+  .faq-q:hover { background: #252525; }
+  .faq-q.open { background: rgba(201,168,76,0.06); }
+  .faq-icon {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.2rem; flex-shrink: 0;
+    transition: transform 0.3s, background 0.2s; font-weight: 300; line-height: 1;
+  }
+  .faq-q.open .faq-icon { transform: rotate(45deg); background: rgba(201,168,76,0.15); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    padding: 0 32px;
+    border-left: 2px solid var(--gold);
+  }
+  .faq-a.open { max-height: 400px; padding: 20px 32px 28px; }
+  .faq-a p { color: rgba(245,240,232,0.72); font-size: 0.96rem; line-height: 1.75; }
+
+  /* CATEGORY LABELS */
+  .faq-category { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin: 40px 0 12px; opacity: 0.7; }
+  .faq-category:first-child { margin-top: 0; }
+
+  /* CTA */
+  .cta-box {
+    margin-top: 60px; padding: 40px;
+    background: var(--dark3);
+    border: 1px solid rgba(201,168,76,0.2);
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .cta-box h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 6px; }
+  .cta-box p { color: var(--muted); font-size: 0.9rem; }
+  .cta-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--dark);
+    padding: 13px 28px; border-radius: 2px;
+    font-weight: 700; font-size: 0.9rem; text-decoration: none;
+    letter-spacing: 0.02em; transition: all 0.2s; white-space: nowrap;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-ghost {
+    color: var(--cream); background: transparent;
+    padding: 13px 28px; border-radius: 2px;
+    font-weight: 500; font-size: 0.9rem; text-decoration: none;
+    border: 1px solid rgba(245,240,232,0.2); transition: all 0.2s; white-space: nowrap;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark2); padding: 32px 60px;
+    border-top: 1px solid rgba(245,240,232,0.06);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  footer p { color: #555; font-size: 0.82rem; }
+  footer a { color: var(--muted); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+  footer a:hover { color: var(--gold); }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    nav { padding: 18px 20px; }
+    .logo { font-size: 1.2rem; }
+    .hero { padding: 48px 20px 36px; }
+    .faq-wrapper { padding: 0 20px 60px; }
+    .faq-q { padding: 20px; font-size: 0.92rem; }
+    .faq-a { padding: 0 20px; }
+    .faq-a.open { padding: 16px 20px 22px; }
+    .cta-box { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+    footer { padding: 24px 20px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+
+  /* ── MOBILE GLOBAL ── */
+  @media (max-width: 600px) {
+    nav { padding: 16px 20px !important; }
+    .logo { font-size: 1.2rem !important; }
+    .back-btn { font-size: 0.75rem !important; }
+    h1 { font-size: clamp(1.9rem, 8vw, 2.6rem) !important; }
+    .hero { padding: 52px 20px 40px !important; }
+    section { padding: 48px 20px !important; }
+    .content-wrapper { padding: 0 20px 60px !important; }
+    .contacts-wrapper { padding: 0 20px 52px !important; }
+    .faq-wrapper { padding: 0 20px 60px !important; }
+
+    /* Grids → 1 column */
+    .who-grid, .ext-grid, .benefits-grid, .why-grid,
+    .attach-grid, .steps-grid, .mission-grid,
+    .values-grid, .rights-grid, .specs-grid,
+    .info-grid, .info-facts, .services-grid,
+    .sign-grid { grid-template-columns: 1fr !important; gap: 2px !important; }
+
+    /* Pricing grids → 1 column */
+    .pricing-grid, .monthly-grid { grid-template-columns: 1fr !important; }
+    .plan-card.featured, .ext-card.featured,
+    .monthly-card.featured { transform: none !important; }
+
+    /* Story section */
+    .story-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+    /* Timeline */
+    .timeline-item { grid-template-columns: 44px 1fr !important; gap: 14px !important; }
+
+    /* CTA boxes */
+    .cta-box { padding: 28px 20px !important; flex-direction: column !important; align-items: flex-start !important; }
+    .cta-actions { flex-direction: column !important; width: 100% !important; }
+    .cta-actions a, .cta-actions .btn-primary, .cta-actions .btn-ghost,
+    .notice-actions a { width: 100% !important; text-align: center !important; box-sizing: border-box !important; }
+
+    /* Tabs */
+    .tab-switcher { flex-direction: column !important; }
+    .tab-btn { width: 100% !important; text-align: center !important; }
+
+    /* Notice box */
+    .notice-box { grid-template-columns: 1fr !important; padding: 28px 20px !important; gap: 14px !important; }
+    .notice-big-icon { font-size: 2.4rem !important; }
+    .notice-content h2 { font-size: 1.3rem !important; }
+
+    /* Cards padding */
+    .plan-card, .ext-card, .monthly-card { padding: 28px 20px !important; }
+    .benefit-card, .feature-card, .who-card,
+    .attach-card, .step-card, .mission-card,
+    .why-card, .value-card { padding: 22px 18px !important; }
+    .contact-card { padding: 28px 22px !important; }
+    .faq-q { padding: 18px 20px !important; font-size: 0.9rem !important; }
+    .faq-a { padding: 0 20px !important; }
+    .faq-a.open { padding: 14px 20px 20px !important; }
+
+    /* Hero sub */
+    .hero-sub { font-size: 0.92rem !important; }
+
+    /* Section title */
+    .section-title { font-size: 1.7rem !important; }
+
+    /* Story quote */
+    .story-quote { padding: 20px !important; }
+
+    /* TOC */
+    .toc { padding: 24px 20px !important; }
+
+    /* Sign box */
+    .sign-box { padding: 24px 20px !important; }
+    .sign-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+    /* Footer */
+    footer { padding: 20px !important; flex-direction: column !important; gap: 8px !important; text-align: center !important; }
+
+    /* Stats grid */
+    .stats-grid { grid-template-columns: 1fr 1fr !important; }
+
+    /* Info row */
+    .info-row { grid-template-columns: 1fr !important; }
+
+    /* Loyalty box */
+    .loyalty-box { flex-direction: column !important; gap: 12px !important; padding: 20px !important; }
+
+    /* Warning box */
+    .warning-box { flex-direction: column !important; gap: 10px !important; padding: 20px !important; }
+
+    /* Buttons full width on mobile */
+    .btn-primary, .btn-ghost, .contact-btn { display: block !important; text-align: center !important; width: 100% !important; box-sizing: border-box !important; }
+    .hero .btn-primary { width: auto !important; display: inline-block !important; }
+  }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Kirby<span>Pro</span></a>
+  <a href="index.html" class="back-btn">← Обратно към сайта</a>
+</nav>
+
+<div class="hero">
+  <div class="section-label">Помощен център</div>
+  <h1>Чести <em>въпроси</em></h1>
+  <p class="hero-sub">Отговори на най-честите въпроси за наема на Kirby Avalir 2 Platinum.</p>
+</div>
+
+<div class="faq-wrapper">
+  <div class="faq-list">
+
+    <div class="faq-category">За уреда</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Колко е мощна Kirby в сравнение с обикновена прахосмукачка?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Kirby Avalir 2 Platinum разполага с мотор 1500W и HEPA филтрация, която улавя 99.97% от праха, акарите и алергените — включително дълбоко в нишките на килима и матрака. Повечето домашни прахосмукачки работят с 600–900W и нямат HEPA филтрация от такъв клас.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Трябва ли ми опит, за да използвам Kirby?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Не — уредът е интуитивен и при доставката получавате кратко видео-ръководство на български. За повечето клиенти са достатъчни 5 минути, за да се ориентират напълно. При нужда сме на телефон за съдействие в работното ни време.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Какво е включено в комплекта?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Получавате пълния комплект Kirby Avalir 2 Platinum с всички 18 приставки — четка за килими, приставка за матрак, маркуч, удължители, четка за прах, дюза за тапицерия, четка за стени и тавани и още. Всичко необходимо за почистване на целия дом.</p>
+      </div>
+    </div>
+
+    <div class="faq-category">За наема</div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Как работи доставката и вземането?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Доставяме уреда до вашата врата в рамките на 24 часа след потвърждение на заявката. В края на наема вземаме уреда от вас — не е нужно да го носите никъде. Доставката и вземането са включени в цената на уикенд и седмичния пакет.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Може ли да удължа наема, ако имам нужда от повече дни?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Да — свържете се с нас по телефон или имейл преди изтичане на наема и ще уредим удължаване без проблем. Допълнителните дни се таксуват по тарифата на еднодневния пакет (49 €/ден).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>Какво се случва, ако повредя уреда?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>При нормална употреба по предназначение не носите никаква отговорност. При умишлена повреда или груба небрежност се прилагат условията от договора за наем. Не се притеснявайте — просто го ползвайте нормално и всичко ще е наред.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span>До кои райони доставяте?</span>
+        <div class="faq-icon">+</div>
+      </button>
+      <div class="faq-a">
+        <p>Доставяме в София и областта в радиус до 30 км. Ако не сте сигурни дали адресът ви е в зоната, просто се свържете с нас — ще уточним веднага.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <div>
+      <h3>Имате друг въпрос?</h3>
+      <p>Свържете се с нас директно — отговаряме бързо.</p>
+    </div>
+    <div class="cta-actions">
+      <a href="tel:+359886825553" class="btn-ghost">📞 0886 825 553</a>
+      <a href="index.html#contact" class="btn-primary">Резервирай наем →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 КирбиПро. Всички права запазени.</p>
+  <a href="index.html">← Обратно към сайта</a>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    var answer = btn.nextElementSibling;
+    var isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(function(a) { a.classList.remove('open'); });
+    document.querySelectorAll('.faq-q').forEach(function(q) { q.classList.remove('open'); });
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+</script>
+</body>
+</html>
