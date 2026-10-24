@@ -569,7 +569,7 @@ h2{font-size:clamp(1.7rem,1.2rem + 1.6vw,2.45rem);line-height:1.15;font-weight:6
     <div class="contact-top">
       <div>
         <h2 id="contact-title">Проверете дата и резервирайте</h2>
-        <p class="lede">Изберете свободен ден в календара и попълнете заявката. Ще ви се обадим до 2 часа в работно време.</p>
+        <p class="lede">Изберете свободен ден в календара и изпратете заявката. Датите се запазват за вас веднага, а ние ви се обаждаме до 2 часа в работно време за потвърждение.</p>
       </div>
       <div class="contact-quick">
         <a class="big-phone" href="tel:+359896825553">0896 825 553</a>
@@ -599,9 +599,10 @@ h2{font-size:clamp(1.7rem,1.2rem + 1.6vw,2.45rem);line-height:1.15;font-weight:6
   <noscript><p class="cal-status">За свободни дати се обадете на 0896 825 553.</p></noscript>
 </div>
       
-<form class="booking" id="booking" action="https://formspree.io/f/xkoqzyna" method="POST" novalidate>
+<form class="booking" id="booking" name="booking" action="/" method="POST" data-netlify="true" netlify-honeypot="_gotcha" novalidate>
+  <input type="hidden" name="form-name" value="booking">
   <h3 class="card-title">Заявка</h3>
-  <input type="hidden" name="_subject" value="Нова заявка от kirbyrental.com">
+  <input type="hidden" name="subject" value="Нова заявка от kirbyrental.com">
   <div class="hp" aria-hidden="true"><label for="f-gotcha">Не попълвайте</label><input id="f-gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
   <div class="row">
     <div class="field"><label for="f-name">Име</label><input id="f-name" name="ime" type="text" autocomplete="name" required></div>
@@ -678,7 +679,7 @@ h2{font-size:clamp(1.7rem,1.2rem + 1.6vw,2.45rem);line-height:1.15;font-weight:6
     <p class="dlg-meta">В сила от ноември 2026 г.</p>
     <h3>1. Страни</h3><p>Наемодател: KirbyPro, физическо лице, гр. София. Контакт: 0896 825 553, rent.kirbypro@gmail.com. Наемател: лицето, подало заявка за наем.</p>
     <h3>2. Предмет</h3><p>Временно ползване на Kirby Avalir 2 Platinum с пълен комплект приставки, в изправно и хигиенизирано състояние.</p>
-    <h3>3. Резервация</h3><p>Потвърждаваме до 2 часа в работно време (понеделник – събота, 8:00 – 20:00). Резервацията е валидна след изрично потвърждение от наша страна.</p>
+    <h3>3. Резервация</h3><p>При изпращане на заявка през сайта избраните дни се запазват временно. Потвърждаваме по телефона до 2 часа в работно време (понеделник – събота, 8:00 – 20:00). Резервацията е валидна след изрично потвърждение от наша страна. Ако не успеем да се свържем с наемателя до 24 часа, временното запазване може да бъде отменено.</p>
     <h3>4. Цени и плащане</h3>
     <ul><li>Еднодневен: 59 €, доставка по договорка</li><li>Уикенд (3 дни): 99 €, доставка и вземане включени</li><li>Седмичен (7 дни): 229 €, доставка и вземане включени</li><li>Допълнителен ден: 59 €</li><li>Месечен абонамент: 39 € на месец, за период от 3 месеца, платим авансово — 117 € (вж. т. 9)</li></ul>
     <p>Наемната цена се заплаща в брой при предаването на уреда, преди започване на ползването. Наемодателят може да откаже предаването при отказ от плащане.</p>
@@ -711,7 +712,7 @@ h2{font-size:clamp(1.7rem,1.2rem + 1.6vw,2.45rem);line-height:1.15;font-weight:6
     <h3>2. Какви данни събираме</h3><p>Име, телефон, имейл (по желание), адрес за доставка, желана дата и бележките от заявката. Не събираме ЕГН, банкови данни или документи за самоличност.</p>
     <h3>3. Цел и основание</h3><p>Само за изпълнение на заявката и договора за наем — чл. 6, пар. 1, б. „б“ от GDPR.</p>
     <h3>4. Срок на съхранение</h3><p>До 12 месеца след приключване на наема, след което данните се изтриват.</p>
-    <h3>5. Трети лица</h3><p>Не продаваме данни. Заявките от формата се обработват от Formspree Inc. Шрифтовете и изображенията се зареждат от нашия сайт, без външни услуги за проследяване.</p>
+    <h3>5. Трети лица</h3><p>Не продаваме данни. Заявките от формата се съхраняват при Netlify, Inc., който хоства сайта, и ни се изпращат по имейл. Календарът на сайта показва само кои дни са заети, без лични данни. Шрифтовете и изображенията се зареждат от нашия сайт, без външни услуги за проследяване.</p>
     <h3>6. Вашите права</h3><p>Имате право на достъп, коригиране, изтриване и възражение. Пишете ни на rent.kirbypro@gmail.com.</p>
     <h3>7. Бисквитки</h3><p>Сайтът не използва бисквитки.</p>
     <h3>8. Жалби</h3><p>Комисия за защита на личните данни, бул. „Проф. Цветан Лазаров“ № 2, София, <a href="https://www.cpdp.bg" rel="noopener">www.cpdp.bg</a>.</p>
@@ -720,15 +721,14 @@ h2{font-size:clamp(1.7rem,1.2rem + 1.6vw,2.45rem);line-height:1.15;font-weight:6
 
 <script>
 /* ============ Свободни дати — настройка ============
-   Вариант А (препоръчително): Google Календар. Заетите дни се обновяват сами.
-     googleCalendarId — от Настройки на календара → „Интегриране на календара“
-     googleApiKey     — API ключ от Google Cloud, ограничен до kirbyrental.com
-   Вариант Б: ръчен списък. Дни 'ГГГГ-ММ-ДД' или периоди ['от', 'до'], напр.:
-     booked: ['2026-10-03', ['2026-10-09', '2026-10-11']]
+   Заетите дни идват от заявките във формата „booking“ (Netlify → Forms).
+   Освобождаване на дни: изтрийте заявката в Netlify → Forms → booking.
+   Резервация по телефона: попълнете сами формата на сайта.
+   Ръчно блокиране (напр. отпуск): дни 'ГГГГ-ММ-ДД' или периоди ['от', 'до'], напр.:
+     booked: ['2026-12-24', ['2026-12-31', '2027-01-02']]
    =================================================== */
 window.KP_CALENDAR = {
-  googleCalendarId: 'fecb494ebe82cdbe43fa89b2a7272f550ccb3da0e704b15e25dabdfe91dda249@group.calendar.google.com',
-  googleApiKey: 'AIzaSyA5JblQhAzCq0vNRWXITY9e1noC4Soiu5I',
+  busyUrl: '/api/busy',
   booked: []
 };
 </script>
@@ -750,39 +750,36 @@ window.KP_CALENDAR = {
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
   var today = sofia.format(new Date());
-  var booked = {}, months = {};
-  var useGoogle = !!(cfg.googleCalendarId && cfg.googleApiKey);
+  var server = {}, fixed = {}, held = {};          // от заявките / ръчно блокирани / току-що изпратени
+  var state = cfg.busyUrl ? 'loading' : 'ok', pending = null;
   var view = parse(today); view.setDate(1);
   var first = new Date(view), last = new Date(view.getFullYear(), view.getMonth() + 6, 1);
   var selected = null;
 
-  function mark(a, b) { var k = a; b = b || a; while (k <= b) { booked[k] = true; k = shift(k, 1); } }
-  (cfg.booked || []).forEach(function (x) { Array.isArray(x) ? mark(x[0], x[1]) : mark(x); });
+  function mark(map, a, b) { var k = a; b = b || a; while (k <= b) { map[k] = true; k = shift(k, 1); } }
+  (cfg.booked || []).forEach(function (x) { Array.isArray(x) ? mark(fixed, x[0], x[1]) : mark(fixed, x); });
   if (cfg.demo) [[2, 4], [9, 9], [12, 18], [23, 25], [31, 33], [40, 40], [44, 50], [58, 60]].forEach(function (r) {
-    mark(shift(today, r[0]), shift(today, r[1]));
+    mark(fixed, shift(today, r[0]), shift(today, r[1]));
   });
+  function isBooked(k) { return !!(server[k] || fixed[k] || held[k]); }
 
-  function monthKey(dt) { return dt.getFullYear() + '-' + pad(dt.getMonth() + 1); }
-  function load(dt) {
-    var mk = monthKey(dt);
-    if (!useGoogle || months[mk] === 'ok' || months[mk] === 'loading') return Promise.resolve();
-    months[mk] = 'loading';
-    var from = new Date(Date.UTC(dt.getFullYear(), dt.getMonth(), 1) - 4 * 3600e3);
-    var to = new Date(Date.UTC(dt.getFullYear(), dt.getMonth() + 1, 1) + 4 * 3600e3);
-    return fetch('https://www.googleapis.com/calendar/v3/freeBusy?key=' + encodeURIComponent(cfg.googleApiKey), {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ timeMin: from.toISOString(), timeMax: to.toISOString(), timeZone: 'Europe/Sofia', items: [{ id: cfg.googleCalendarId }] })
-    }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  function load(force) {
+    if (!cfg.busyUrl) return Promise.resolve();
+    if (pending && !force) return pending;
+    state = 'loading'; render();
+    pending = fetch(cfg.busyUrl, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (data) {
-        var cal = data.calendars && data.calendars[cfg.googleCalendarId];
-        if (!cal || (cal.errors && cal.errors.length)) throw new Error('calendar');
-        cal.busy.forEach(function (b) {
-          for (var t = Date.parse(b.start), e = Date.parse(b.end); t < e; t += 3600e3) booked[sofia.format(new Date(t))] = true;
-        });
-        months[mk] = 'ok';
-      }).catch(function () { months[mk] = 'error'; });
+        if (!data || !data.ok || !Array.isArray(data.booked)) throw new Error('data');
+        var next = {}; data.booked.forEach(function (k) { next[k] = true; });
+        server = next; state = 'ok';
+      })
+      .catch(function () { state = 'error'; })
+      .then(render);
+    return pending;
   }
 
+  function isBusiness() { return /^Бизнес/.test(pkg.options[pkg.selectedIndex].text); }
   function duration() {
     var t = pkg.options[pkg.selectedIndex].text;
     return /^Уикенд/.test(t) ? 3 : /^Седмичен/.test(t) ? 7 : 1;
@@ -799,14 +796,14 @@ window.KP_CALENDAR = {
   }
 
   function render() {
-    var y = view.getFullYear(), m = view.getMonth(), mk = monthKey(view);
+    var y = view.getFullYear(), m = view.getMonth();
     monthEl.textContent = cap(MONTHS[m]) + ' ' + y;
     prevBtn.disabled = view <= first; nextBtn.disabled = view >= last;
-    root.classList.toggle('is-loading', months[mk] === 'loading');
+    root.classList.toggle('is-loading', state === 'loading');
     var days = span(), lead = (new Date(y, m, 1).getDay() + 6) % 7, count = new Date(y, m + 1, 0).getDate(), html = '';
     for (var i = 0; i < lead; i++) html += '<span aria-hidden="true"></span>';
     for (var day = 1; day <= count; day++) {
-      var k = y + '-' + pad(m + 1) + '-' + pad(day), past = k <= today, busy = !past && booked[k];
+      var k = y + '-' + pad(m + 1) + '-' + pad(day), past = k <= today, busy = !past && isBooked(k);
       var cls = 'cal-day' + (past ? ' is-past' : '') + (busy ? ' is-booked' : '') + (k === today ? ' is-today' : '') +
         (k === selected ? ' is-selected' : days.indexOf(k) > 0 ? ' in-range' : '');
       var label = day + ' ' + MONTHS[m] + (past ? '' : busy ? ', заето' : ', свободно');
@@ -814,9 +811,10 @@ window.KP_CALENDAR = {
         (past || busy ? ' disabled' : '') + (k === selected ? ' aria-pressed="true"' : '') + '>' + day + '</button>';
     }
     grid.innerHTML = html;
-    if (months[mk] === 'loading') setStatus('', 'Зареждане на заетостта…');
-    else if (months[mk] === 'error') setStatus('is-error', 'Не успяхме да заредим заетостта за този месец. Обадете се на 0896 825 553 за свободни дати.');
+    if (state === 'loading' && !selected) setStatus('', 'Зареждане на заетостта…');
+    else if (state === 'error') setStatus('is-error', 'Не успяхме да заредим заетостта. Обадете се на 0896 825 553 за свободни дати.');
     else if (selected) explain();
+    else setStatus('', 'Изберете свободен ден — датата се попълва в заявката.');
   }
   function setStatus(cls, text, html) {
     status.className = 'cal-status' + (cls ? ' ' + cls : '');
@@ -824,7 +822,7 @@ window.KP_CALENDAR = {
   }
   function problem() {
     if (!selected) return null;
-    var clash = span().filter(function (k) { return booked[k]; });
+    var clash = span().filter(isBooked);
     if (!clash.length) return null;
     return clash[0] === selected
       ? 'Датата ' + describe(selected) + ' е заета. Изберете свободен ден от календара.'
@@ -842,7 +840,14 @@ window.KP_CALENDAR = {
   function go(dt) {
     view = new Date(dt.getFullYear(), dt.getMonth(), 1);
     render();
-    load(view).then(render);
+  }
+  /** След успешна заявка: дните стават заети веднага, без да чакаме обработката в Netlify. */
+  function holdSelected() {
+    if (!selected || isBusiness()) { selected = null; render(); return false; }
+    span().forEach(function (k) { held[k] = true; });
+    selected = null; render();
+    setStatus('is-ok', 'Датите са запазени за вас до потвърждение.');
+    return true;
   }
 
   grid.addEventListener('click', function (e) {
@@ -850,7 +855,7 @@ window.KP_CALENDAR = {
     if (!b || b.disabled) return;
     selected = b.getAttribute('data-date');
     dateInput.value = selected; dateInput.removeAttribute('aria-invalid');
-    render(); explain();
+    render();
   });
   prevBtn.addEventListener('click', function () { go(new Date(view.getFullYear(), view.getMonth() - 1, 1)); });
   nextBtn.addEventListener('click', function () { go(new Date(view.getFullYear(), view.getMonth() + 1, 1)); });
@@ -859,16 +864,15 @@ window.KP_CALENDAR = {
     if (!selected) return render();
     var dt = parse(selected);
     if (dt >= first && dt < new Date(last.getFullYear(), last.getMonth() + 1, 1)) go(dt); else render();
-    explain();
   });
-  pkg.addEventListener('change', function () { render(); if (selected) explain(); });
+  pkg.addEventListener('change', function () { render(); });
 
-  window.KPCal = { problem: problem };
+  window.KPCal = { problem: problem, refresh: function () { return load(true); }, holdSelected: holdSelected };
   // Late in the month, open on next month (the current one stays one click back)
   var daysLeft = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate() - parse(today).getDate();
-  if (daysLeft < 7) { load(view); view = new Date(view.getFullYear(), view.getMonth() + 1, 1); }
+  if (daysLeft < 7) view = new Date(view.getFullYear(), view.getMonth() + 1, 1);
   go(view);
-  load(new Date(view.getFullYear(), view.getMonth() + 1, 1)).then(render);
+  load();
 })();
 </script>
 
@@ -909,7 +913,7 @@ window.KP_CALENDAR = {
   var t = new Date(); t.setDate(t.getDate() + 1);
   date.min = t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0');
 
-  // Form: validate, send via Formspree, answer in Bulgarian
+  // Form: validate, re-check free days, send to Netlify Forms, answer in Bulgarian
   var form = d.querySelector('.booking'), status = form.querySelector('.form-status');
   var messages = {
     ime: 'Въведете име.', telefon: 'Въведете телефон, на който да ви се обадим.',
@@ -937,14 +941,24 @@ window.KP_CALENDAR = {
     }
     var btn = form.querySelector('[type=submit]');
     btn.disabled = true; status.className = 'form-status'; status.textContent = 'Изпращане…';
-    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-      .then(function (r) {
-        if (!r.ok) throw new Error();
-        form.reset(); status.className = 'form-status is-ok';
-        status.textContent = 'Заявката е изпратена. Ще ви се обадим до 2 часа в работно време.';
+    var body = new URLSearchParams(new FormData(form)).toString(), cal = window.KPCal;
+    (cal ? cal.refresh() : Promise.resolve())          // последна проверка за заети дни
+      .then(function () {
+        var clash = cal && cal.problem();
+        if (clash) { var stop = new Error(clash); stop.user = true; throw stop; }
+        return fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body });
       })
-      .catch(function () {
+      .then(function (r) {
+        if (!r.ok) throw new Error('send ' + r.status);
+        var held = cal ? cal.holdSelected() : false;
+        form.reset(); status.className = 'form-status is-ok';
+        status.textContent = held
+          ? 'Заявката е изпратена и датите са запазени за вас. Ще ви се обадим до 2 часа в работно време, за да потвърдим.'
+          : 'Заявката е изпратена. Ще ви се обадим до 2 часа в работно време.';
+      })
+      .catch(function (err) {
         status.className = 'form-status is-error';
+        if (err && err.user) { date.setAttribute('aria-invalid', 'true'); status.textContent = err.message; return; }
         status.textContent = 'Заявката не беше изпратена. Проверете връзката или се обадете на 0896 825 553.';
       })
       .finally(function () { btn.disabled = false; });
